@@ -1,0 +1,105 @@
+
+.img-shops{
+  position: relative;
+}
+
+.img-shops .direction{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+}
+
+.container.add-product{
+  margin-top: 70px;
+  margin-bottom: 90px;
+}
+
+.container.add-product > div:not(:first-child){
+  width: 45%;
+}
+
+.container.add-product  h2{
+  color: #255946;
+  font-family: 'Handlee', 'cursive';
+  letter-spacing: 2px;
+}
+
+.container.add-product .selected-box{
+  background-color: #f4f4f4;
+  padding: 20px 25px;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.container.add-product .selected-box .selected{
+  font-family: 'Handlee', 'cursive';
+  font-size: 1.3em;
+  color: #717573;
+  position: relative;
+}
+
+.container.add-product .selected-box .selected .bottom-arrow{
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  right: 0;
+}
+
+.container.add-product .selected-box.quantity, 
+.container.add-product .selected-box.crop-name-box,
+.container.add-product .selected-box.location-longitude{
+  width: 45%;
+}
+
+.container.add-product .selected-box.location-latitude{
+  width: 50%;
+}
+
+.container.add-product .selected-box input.selected,
+.container.add-product .selected-box.location input.selected{
+  outline: none;
+  border: none;
+  background-color: #f4f4f4;
+}
+
+.container.add-product .selected-box.quantity-id{
+  width: 50%;
+}
+
+.container.add-product .selected-box.crop-name-box{
+  position: relative;
+}
+
+.container.add-product .selected-box.crop-name-box .bottom-arrow{
+  position: absolute;
+  top: 15px;
+  right: 0;
+  color: #717573;
+  cursor: pointer;
+}
+
+.container.add-product textarea{
+  border: none;
+  outline: none;
+  background-color: #f4f4f4;
+  padding: 30px ;
+  border-radius: 5px;
+  width: 100%;
+  caret-color: #000;
+  font-family: 'Handlee', 'cursive';
+  font-size: 1.2em;
+}
+
+.container.add-product .agriculture-crop-submit{
+  padding: 15px !important;
+  background-color: #49a760 !important;
+  outline: 1px solid #49a760 !important;
+  border: 1.5px solid #49a760 !important;
+  font-family: 'Handlee', 'cursive';
+  letter-spacing: 1.5px;
+  font-size: 1.2em;
+}
+
+

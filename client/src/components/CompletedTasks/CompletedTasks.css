@@ -1,0 +1,42 @@
+.container.completed-tasks{
+  margin-top: 50px;
+  background-color: #F6F5F2;
+}
+
+.container.completed-tasks .shape-parent{
+  padding: 90px 0;
+}
+
+.container.completed-tasks .shape-parent:not(:last-child){
+  border-right: 1px solid #e9e7e2;
+}
+
+.container.completed-tasks .shape{
+  font-size: 70px;
+  background-color: #49a760;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .7s ease-in-out;
+}
+.container.completed-tasks .shape:hover{
+  background-color: #ffc107;
+}
+
+.container.completed-tasks .shape-parent .counter{
+  font-family: 'Handlee', 'cursive';
+  color:#255946;
+  font-weight: bolder;
+  margin-left: 25px;
+  margin-top: 20px
+}
+
+.container.completed-tasks .shape-parent h5{
+  margin-left: 30px;
+  color: #6e7673;
+  margin-top: 15px;
+  font-family: 'Handlee', 'cursive';
+  font-weight: bolder;
+  letter-spacing: 1.5px;
+}

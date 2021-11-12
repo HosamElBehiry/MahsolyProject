@@ -1,0 +1,166 @@
+.img-shops{
+  position: relative;
+}
+
+.img-shops .direction{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+}
+.single-product .post-section{
+  position: relative;
+}
+
+.single-product .post-section img { 
+  border-radius: 5px;
+  
+}
+
+.single-product .post-section > img{
+  height: 452px;
+  width: 736px;
+}
+
+.single-product .search-section{
+  background-color: #49a760;
+  color: white;
+  padding: 10px 20px; 
+  border-radius: 3px;
+}
+
+.single-product .search-section input{
+  background-color: #49a760;
+  border: 1px solid #49a760;
+  outline: none;
+  padding: 15px;
+  caret-color: white;
+  color: white;
+  font-weight: bolder;
+}
+
+.single-product .search-section input::placeholder{
+  color: white;
+  font-weight: bolder;
+}
+
+.single-product .search-section .search-shape{
+  font-size: 1.4em;
+  cursor: pointer;
+}
+.single-product .recent-posts, 
+.single-product .categories{
+  background-color: #f4f4f4;
+  width: 100%;
+  padding: 20px 50px;
+  font-family: 'Handlee', 'cursive';
+  border-radius: 5px;
+}
+
+.single-product .recent-posts h4, 
+.single-product .categories h4{
+  font-weight: bolder;
+  color: #000;
+  letter-spacing: 1.6px;
+}
+
+.single-product .recent-posts .post img{
+  border-radius: 2px;
+  height: 100%;
+}
+
+.single-product .recent-posts .post .date{
+  letter-spacing: 1.2px;
+  color: #49a760;
+}
+
+.single-product .recent-posts .post .post-title{
+  font-weight: bolder;
+  font-size: 1.2em;
+  letter-spacing: 1.1px;
+}
+
+.single-product .recent-posts hr { 
+  color: #000;
+}
+
+.single-product .post-section .shape{
+  color: #49a760;
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+}
+
+.single-product .post-section  .shape-span{
+  color: #717573;
+  cursor: pointer;
+  font-family: 'Handlee', 'cursive';
+  letter-spacing: 1.5px;
+  word-spacing: -3.5px;
+  transition: all 0.7s ease-in-out;
+}
+
+.single-product .post-section  .shape:hover, 
+.single-product .post-section  .shape-span:hover{
+  color: #49a760;
+}
+
+.single-product .post-section .post-description{
+  color: #747474;
+  line-height: 1.8;
+  font-size: 1.2em;
+  word-break: normal;
+}
+
+.single-product .post-section .post-comments .comment .comment-description{
+  font-family: 'Handlee', 'cursive';
+  letter-spacing: 1.2px;
+}
+.single-product .post-section .post-comments .comment .comment-description p { 
+  color: #747474;
+}
+.single-product .post-section .post-comments .comment .comment-description .date-of-comment{
+  color: #49a760;
+}
+
+.single-product .categories .category-name > *, 
+.single-product .categories .category-arrow > *{
+  color: #747474;
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+  letter-spacing: 1.1px;
+  text-decoration: none;
+}
+
+.single-product .categories .category-name.crop{
+  margin-right: 100px;
+}
+
+.single-product .categories .category-name > *:hover, 
+.single-product .categories .category-arrow > *:hover{
+  color: #49a760;
+}
+
+.leaving-comment textarea{
+  border: none;
+  outline: none;
+  background-color: #f4f4f4;
+  padding: 30px ;
+  border-radius: 5px;
+  width: 100%;
+  margin: 20px 0;
+  caret-color: #000;
+  font-family: 'Handlee', 'cursive';
+  font-size: 1.2em;
+}
+
+.leaving-comment .comment-submit{
+  padding: 15px 50px;
+  background-color: #49a760 !important;
+  outline: 1px solid #49a760 !important;
+  border: 1.5px solid #49a760 !important;
+  font-family: 'Handlee', 'cursive';
+  letter-spacing: 1.5px;
+  font-size: 1.2em;
+}
+

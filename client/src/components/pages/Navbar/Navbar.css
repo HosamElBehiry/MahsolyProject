@@ -1,0 +1,62 @@
+
+ul.left{ 
+  width: 15%;
+}
+
+ul.middle li { 
+  padding: 10px;
+  margin-right: 10px;
+  font-family: 'Handlee', 'cursive';
+  font-size: 1.3em;
+  color: #255946 !important;
+}
+
+.custom{
+  font-family: 'Abril Fatface', cursive !important;
+  font-size: 25px !important;
+}
+
+.active > * { 
+  border-bottom: 2px solid #efb443 ;
+  color:#255946 !important;
+}
+
+ul.right{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 21px;
+}
+
+ul.right li { 
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+ul.right li:last-child{
+  padding: 10px 5px;
+  background-color: #efb443;
+  border-radius: 5px;
+  font-family: 'lato';
+  transition: background-color 0.8s ease-in-out;
+}
+
+ul.right li:not(:last-child) :hover{
+  color: #255946;
+}
+
+ul.right li:last-child:hover{
+  background-color: #255946;
+  color: white;
+}
+
+span.ourNumber{
+  margin-left: 10px;
+}
+
+.phone{
+  color :white !important; 
+}
+
+
+

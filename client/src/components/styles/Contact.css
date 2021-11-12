@@ -1,0 +1,35 @@
+
+.myimg{
+    width: 100%;
+    bottom: -300px;
+    left: 0;
+    background-position: center center;
+    background-size: cover;
+    }  
+    .formLogin{
+        width: 80%;
+        border: 1px solid gray;
+        border-radius: 5%;
+        height: 450px;
+    }
+    .formLogin2{
+        width: 80%;
+        border: 1px solid gray;
+        border-radius: 5%;
+        height: 800px;
+    }
+    .text{
+        font-weight: bold;
+        font-size: 20px;
+        color: #1F4E3D;
+
+    }
+    .btnn{
+        background-color: #efb443;
+        font-weight: bold;
+    }
+    .btnnn{
+        font-weight: bold;
+        text-align: left;
+        color: #1F4E3D;
+    }

@@ -1,0 +1,32 @@
+.myhover{
+  cursor: pointer;
+}
+
+.myhover:not(.right) :hover{
+  color: orange;
+  transition: all 0.3s ease-in-out;
+}
+
+.text{
+  font-family: 'Handlee', 'cursive';
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.myhover.right > * { 
+  color: #49A760;
+}
+
+.greet-user-top-navbar{
+  font-family: 'Handlee', 'cursive';
+  font-size: 1.3em;
+  letter-spacing: 1.2px;
+}
+
+.greet-user-top-navbar > * { 
+  text-decoration: none;
+}
+
+.top-nav-appointments, .top-nav-email{
+  margin-top: 2px;
+}

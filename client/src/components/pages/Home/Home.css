@@ -1,0 +1,66 @@
+.main-div{
+  animation-name: changeBckGrd;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  height: 100vh;
+  background-size: cover;
+  color: white;
+  position: relative;
+}
+
+@keyframes changeBckGrd {
+  0%{
+    background-image: url('https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/main-slider-1.jpg');
+  }
+  33%{
+    background-image: url('https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/main-slider-2.jpg');
+  }
+  66%{
+    background-image: url('https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/cta-2-bg.jpg');
+  }
+  100%{
+    background-image: url('https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/main-slider-1.jpg');
+  }
+}
+
+.main-div > div.first {
+  height: 100%;
+  font-weight: bolder;
+  width: fit-content;
+  margin: auto;
+  height: fit-content;
+  transform: translateY(50%);
+  position: relative;
+}
+
+.main-div  div.first h2{
+  font-size: 1.9em !important;
+}
+
+.main-div  div.first h1{
+  font-size: 6em !important;
+  font-family: 'Handlee', 'cursive';
+}
+
+.main-div  div.first img{
+  position: absolute;
+  top: 7%;
+  right: 85px;
+}
+
+.main-div  div.first button { 
+  color: white !important;
+  margin-left: 40%;
+  transition: all 0.5s ease-in-out;
+  padding: 15px;
+}
+
+.main-div  div.first button:hover{
+  background-color: #fff !important;
+  border: 1px solid #fff !important;
+  color: #efb443 !important;
+}
+
+
+
+

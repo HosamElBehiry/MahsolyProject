@@ -1,0 +1,80 @@
+.container-fluid.knowing-us{
+  margin-top: 150px; 
+  background-color: #1F4E3D;
+}
+.knowing-left{
+  position: relative;
+}
+
+.knowing-left .playMark{
+  position: absolute;
+  bottom: 24px;
+  right: 0;
+  color: white;
+  background-color: #ffc107;
+  font-size: 50px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+}
+
+.knowing-left .playMark:hover{
+  background-color: #1F4E3D;
+  color: #ffc107;
+}
+
+.knowing-left img{
+  border-radius: 5px;
+}
+
+.knowing-right{
+  background-image: url('https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/video-bg.png');
+  background-size: cover;
+}
+
+.knowing-right h5{ 
+  color: #b5c3be;
+  letter-spacing: 1.5px;
+}
+
+.knowing-right p {
+  color: #b5c3be;
+}
+
+.knowing-title{
+  color: white;
+  letter-spacing: 1.5px;
+}
+
+.knowing-right ul li{
+  color: #fff;
+  padding: 5px;
+  margin-left: -5px;
+}
+
+.knowing-correct-mark{
+  color: #1F4E3D ;
+  border-radius: 50%;
+  font-size: 1.6em;
+}
+
+.knowing-right hr {
+  margin-top: 35px; 
+  color: #949494;
+}
+
+.total-products-summary > :first-child{
+  color: #ffc107;
+}
+
+.total-products-summary > :last-child{
+  margin-left: 48px;
+  color: white;
+}
+
+
+.total-products-summary .count{
+  margin-left: 80px;
+  color: white;
+  font-family: 'Handlee', 'cursive';
+}

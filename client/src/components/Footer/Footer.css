@@ -1,0 +1,176 @@
+.container-fluid.footer{
+  background-color: #255946;
+  margin-top: 60px;
+  background-image: url('https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/footer-bg-icon.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+
+footer .container .row{
+  padding-top: 70px;
+}
+
+.logo-footer-word{
+  color: white;
+  font-family: 'Abril Fatface', cursive !important;
+  font-size: 25px !important;
+  letter-spacing: 2px;
+}
+
+.footer-first-cont-2{
+  color: #b5c3be ;
+  line-height: 2.2em;
+  font-size: 18px;
+  margin-top: -17px !important;
+  margin-bottom: 1rem !important;
+}
+
+footer form input{
+  height: 50px;
+  outline: none;
+  border: 1.5px solid #f6f5f2;
+  border-radius: 5px;
+  padding: 20px;
+
+}
+
+footer form button{
+  margin-left: -5px;
+  margin-top: -5px;
+  padding: 12px 15px !important;
+  color: white !important;
+  border-radius: 0px 5px 5px 0px !important;
+}
+
+
+footer form button > * { 
+  font-size: 1.3em;
+}
+
+footer input::placeholder{
+  font-family: 'Handlee', 'cursive';
+  font-size: 1.3em;
+}
+
+footer .footer-first-cont-4{
+  color: white;
+}
+
+footer .footer-first-cont-4 > *{
+  transition: all 0.7s ease-in-out;
+  cursor: pointer;
+}
+
+footer .footer-first-cont-4 > *:hover{
+  color: #ffc107;
+}
+
+footer .footer-second-1 h4{
+  color: white;
+  font-family: 'Abril Fatface', cursive !important;
+  margin-left: 5px;
+  letter-spacing: 2px;
+}
+
+footer .footer-second-1 > :not(h4){
+  color: #b5c3be;
+  transition: all 0.7s ease-in-out;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+}
+footer .footer-second-1 > :not(h4):hover{
+  color: #ffc107;
+}
+
+footer .footer-third-1 h4{
+  color: white;
+  font-family: 'Abril Fatface', cursive !important;
+  margin-left: 5px;
+  letter-spacing: 2px;
+}
+
+.footer-third-2-desc h6{
+  color: #ffc107;
+}
+
+.footer-third-2-desc p{
+  color: white;
+  width: 90%;
+}
+
+.footer-third-3-desc h6{
+  color: #ffc107;
+}
+
+.footer-third-3-desc p{
+  color: white;
+  width: 90%;
+}
+
+.footer-third-2-img-div img{
+  border-radius: 5px;
+}
+
+.footer-third-3-img-div img{
+  border-radius: 5px;
+}
+
+footer .footer-forth-1 h4{
+  color: white;
+  font-family: 'Abril Fatface', cursive !important;
+  margin-left: 5px;
+  letter-spacing: 2px;
+}
+
+footer hr { 
+  width: 70%;
+  color: #949494;
+}
+
+.contact-footer-logo{
+  color: #ffc107;
+}
+
+.footer-detail{
+  color: #f6f5f2
+}
+
+.footer-forth-1-sub .contact-footer-logo, .footer-detail{
+  transition: all 0.7s ease-in-out;
+  cursor: pointer;
+}
+
+.footer-forth-1-sub:hover .contact-footer-logo{
+  color: white;
+}
+
+.footer-forth-1-sub:hover .footer-detail{
+  color: #ffc107;
+}
+
+.result-msg-footer{
+  font-family: 'Handlee', 'cursive';
+  width: 30%;
+  margin: auto;
+  padding: 10px 20px;
+  border-radius: 2px;
+  color: white;
+  font-size : 1.2em;
+  text-align: center;
+  position: fixed;
+  top: -7%;
+  right: -30%;
+  z-index : 99;
+  letter-spacing: 1.4px;
+}
+
+.result-msg-footer.error{
+  background-color: rgba(220,53,69,.85);
+  right: 0;
+}
+
+.result-msg-footer.success{
+  background-color: #49a760;
+  right: 0;
+}

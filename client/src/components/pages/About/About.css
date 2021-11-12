@@ -1,0 +1,16 @@
+img.myimg { 
+  width: 100%;
+}
+
+.about-starting-img{
+  position: relative;
+}
+
+.about-starting-img .direction{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -100%);
+    font-size: 2em;
+}

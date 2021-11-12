@@ -1,0 +1,14 @@
+.copy-right{
+  padding-bottom: 20px;
+  overflow: hidden;
+  font-family: 'Handlee', 'cursive';
+  color: white;
+}
+
+.copy-right-left{
+  float: left;
+}
+
+.copy-right-right{
+  float: right;
+}

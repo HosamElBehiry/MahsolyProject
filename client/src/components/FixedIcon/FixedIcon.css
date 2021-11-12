@@ -1,0 +1,12 @@
+.fixed-icon{
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+  background-color: #49a760;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 1.3em;
+  cursor: pointer;
+  display: none;
+}

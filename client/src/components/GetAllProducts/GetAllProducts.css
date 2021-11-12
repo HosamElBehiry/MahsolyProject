@@ -1,0 +1,108 @@
+.get-all-products{
+  margin-top: 70px;
+}
+.get-all-products .row > div img{
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+  width: 370px;
+  height: 280px;
+}
+.get-all-products .row > div img:hover{
+  transform: scale(1.03);
+}
+
+.get-all-products .shape{
+  color: #49a760;
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+}
+
+.get-all-products .shape-span{
+  color: #717573;
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+}
+
+.get-all-products .shape:hover, .get-all-products .shape-span:hover{
+  color: #49a760;
+}
+
+.get-all-products h3 { 
+  font-family: 'Handlee', 'cursive';
+  font-weight: bolder;
+  line-height: 1.4;
+  letter-spacing: 1.005px;
+  margin-bottom: 15px;
+}
+
+.get-all-products .product{
+  position: relative;
+}
+
+.get-all-products .date{
+  background-color: #49a760;
+  color: white;
+  padding: 10px 5px;
+  width: fit-content;
+  border-radius: 3px;
+  font-family: 'Handlee', 'cursive';
+  position: absolute;
+  top: 0;
+  left: 12px;
+}
+
+.get-all-products .buy-see-love > * > *{
+  color: white;
+  background-color: #49a760;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 3em;
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+}
+
+.get-all-products .buy-see-love > * > *:hover{
+  background-color: #ffc107;
+}
+
+.get-all-products .pages > *{
+  background-color:#49a760;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bolder;
+  font-size: 1.2em;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.get-all-products .pages > *:first-child, .get-all-products .pages > *:last-child{
+  font-size: 3em;
+  padding: 10px;
+  background-color:#717573;
+}
+
+.get-all-products .pages .active{
+  background-color: #ffc107;
+}
+
+.get-all-products .add-product button{
+  color: white !important;
+  padding: 10px 35px;
+  font-size: 1.7em;
+  font-family: 'Handlee', 'cursive';
+  letter-spacing: 1.2px;
+  margin-left: -10px;
+  background-color:#49a760;
+  outline: 1px solid #49a760;
+  border: 1px solid #49a760;
+}
+
+.get-all-products .buy-see-love .delete-icon{
+  background-color: rgba(220,53,69,.85) !important;
+} 
+
+.get-all-products .buy-see-love .update-icon{
+  background-color: skyblue;
+}
+
+

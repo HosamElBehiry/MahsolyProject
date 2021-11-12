@@ -1,0 +1,42 @@
+.agriculture-crops .select-parent{
+  position: relative;
+}
+
+.agriculture-crops .crop-names,
+.agriculture-crops .crop-measurements{
+  background-color: #f4f4f4;
+  color: #717573;
+  z-index: 3;
+  position: absolute;
+  top: 85px;
+  left: 0px;
+  padding: 20px 25px;
+  border-radius: 2px;
+  width: 100%;
+  font-family: 'Handlee', 'cursive';
+  display: none;
+}
+
+.agriculture-crops .crop-names{
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.agriculture-crops .crop-measurements{
+  top: 55px;
+  width: 127%;
+  left: -25px;
+}
+
+.agriculture-crops .crop-names > div,
+.agriculture-crops .crop-measurements > div { 
+  padding: 20px 25px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  font-size: 1.2em;
+}
+
+.agriculture-crops .crop-names > div:hover,
+.agriculture-crops .crop-measurements > div:hover{
+  padding: 20px 35px;
+}

@@ -1,0 +1,157 @@
+.yellow-bckgrnd{
+  background-color: #efb443;
+  height: 160px;
+  width: 100%;
+}
+
+.container.first .row { 
+  margin-top: -50px;
+}
+
+.container.first .row > div img { 
+  border-radius: 10px;
+  transition : all 0.8s ease;
+  cursor: pointer;
+}
+
+.container.first .row > div img:hover{
+  filter: grayscale(40%);
+}
+
+.img-title{
+  background-color: #fff;
+  width: 80%;
+  margin: auto;
+  margin-top : -30px;
+  color: #255946;
+  position: relative;
+  z-index : 333;
+  border-radius : 10px;
+  padding: 15px 10px;
+  font-family: 'Handlee', 'cursive';
+  transition : all 0.8s ease;
+  cursor: pointer;
+}
+
+.img-title:hover{
+  color: #efb443 ;
+}
+
+.container.first{
+  margin-bottom: 80px;
+}
+
+.history-left{
+  float: left;
+  position: relative;
+}
+.history-left::after{
+  content: '';
+  height: 200px;
+  width: 200px;
+  background-image: url('https://ninetheme.com/themes/agrikon/wp-content/uploads/2020/12/about-circle.png');
+  position: absolute;
+  top: 45px;
+  left: -110px;
+}
+
+.history-left::before{
+  content: 'Trusted By 2000 User';
+    height: 200px;
+    width: 100px;
+    position: absolute;
+    top: 117px;
+    left: -45px;
+    color: #fff !important;
+    z-index: 33;
+    font-size: 19px;
+    font-weight: bold;
+    font-family: 'Handlee', 'cursive';
+}
+
+.history-left img{
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.history-right .logo-history{
+  position: relative;
+}
+.history-right .logo-history img:last-child{
+  position: absolute;
+  left: -120%;
+  top: 1600%;
+  border-radius : 5px;
+}
+
+.history-right h6.history-greeting{
+  color: #949494;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.history-right h1{
+  line-height: 1.3;
+  color: #255946;
+}
+
+.history-right h3{
+  color: #efb443;
+  font-family: 'Handlee', 'cursive';
+  line-height: 1.3;
+}
+
+.history-right h3 span{
+  text-decoration: underline;
+}
+
+.history-right .history-description{
+  line-height: 2;
+  color: #949494;
+}
+
+.history-farmer-logo{
+  font-size: 70px;
+  cursor: pointer;
+  transition: all .7s ease-in-out;
+  color: #49a760;
+}
+
+.history-professional{
+  color: #255946;
+  font-family: 'Handlee', 'cursive';
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+  font-weight: bolder;
+}
+.history-prof-parent:hover .history-farmer-logo{
+  color: #efb443;
+}
+.history-prof-parent:hover .history-professional{
+  color: #49a760;
+}
+
+.history-right .buttons button{
+  color: white !important;
+  padding : 10px 15px;
+  transition: all 0.7s ease-in-out;
+
+}
+
+.history-right .buttons button:last-child{
+  background-color: #49a760 !important;
+  outline: 1px solid #49a760;
+  border : 1px solid #49a760
+}
+
+.history-right .buttons button:first-child:hover{
+  background-color: #49a760 !important;
+  outline: 1px solid #49a760;
+  border : 1px solid #49a760
+}
+
+.history-right .buttons button:last-child:hover{
+  background-color: #efb443 !important;
+  outline: 1px solid #efb443;
+  border : 1px solid #efb443
+}
