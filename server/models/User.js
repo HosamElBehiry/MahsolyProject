@@ -41,14 +41,10 @@ const userSchema = mongoose.Schema({
     ref : "AgricultureLand",
     default : []
   },
-  Articles : {
-    type : [mongoose.Schema.Types.ObjectId],
-    ref : "Articles",
-    default : []
-  },
-  comments: {
-    type : mongoose.Schema.Types.ObjectId,
-    ref : "Comments"
+  Notification: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'Notification',
+    default: []
   }
 });
 

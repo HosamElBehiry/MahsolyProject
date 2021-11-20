@@ -81,7 +81,7 @@
   background-color:#717573;
 }
 
-.get-all-products .pages .active{
+.get-all-products .active{
   background-color: #ffc107;
 }
 
@@ -104,5 +104,6 @@
 .get-all-products .buy-see-love .update-icon{
   background-color: skyblue;
 }
+
 
 

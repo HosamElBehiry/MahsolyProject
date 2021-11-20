@@ -1,9 +1,9 @@
 import {ADD_CROP, DELETE_CROP, GET_ALL} from '../ActionTypes/AgricultureCropTypes';
 import axios from 'axios';
+
 export const deleteAgricultureCrop = () =>{
   return {
-    type: DELETE_CROP,
-    payload: false
+    type: DELETE_CROP
   }
 }
 
@@ -16,11 +16,13 @@ export const getAllProducts = (Crops) =>{
 
 export const deleteCrop = (crop_id) =>{
   return (dispatch) =>{
-    axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
-    axios.delete(`http://localhost:8080/agriculture-crops-router/${crop_id}`)
+    axios.delete(`http://localhost:8080/agriculture-crops-router/${crop_id}`, 
+      {headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`
+      }})
     .then(()=>{
-      console.log('Crop deleted')
       dispatch(deleteAgricultureCrop());
+      dispatch(getAllCrops());
     }).catch(()=>{
       alert('Error while deleting Agriculture Crop')
     })
@@ -39,7 +41,7 @@ export const getAllCrops = () =>{
   }
 }
 
-export const AddNewCrop = (cropData) =>{
+export const AddNewCrop = () =>{
   return {
     type: ADD_CROP,
     isAdded: false
@@ -53,8 +55,8 @@ export const AddCrop = (formData) =>{
           authorization : `Bearer ${localStorage.getItem('token')}`
         }
       }).then(()=>{
-        console.log('inside post axios add agriculture crop ')
-        dispatch(AddNewCrop(formData));
+        dispatch(AddNewCrop());
+        dispatch(getAllCrops());
       }).catch((err)=>{
         console.log('Error Adding New Product', err);
       })

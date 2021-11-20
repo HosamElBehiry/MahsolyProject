@@ -17,11 +17,11 @@ const Addproducts = () => {
           </h3>
       </div>
       <div className='container add-product d-flex justify-content-center'>
-        {window.location.href.includes('/Lands') 
+        {
+          window.location.href.includes('/Lands') 
           ?  <AddAgricultureLand /> 
           :  <AddAgricultureCrop />
         }
-        
       </div>
     </React.Fragment>
   );

@@ -1,7 +1,7 @@
 
 
 /*Start Scrolling */
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -11,5 +11,5 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background-color: darkgrey;
-}
+} */
 /*End Scrolling */

@@ -3,10 +3,10 @@ import './Offers.css'
 import Loader from '../../public/images/loader.png';
 import {FaTractor, FaHandHoldingHeart} from 'react-icons/fa';
 import {GiFruitTree} from 'react-icons/gi';
-class Offers extends React.Component {
-  render() {
-    return (
-      <div className="container-fluid offers">
+
+function Offers() {
+  return (
+    <div className="container-fluid offers">
         <header className='text-center pt-5'>
             <img src={Loader} alt='' />
             <h5 className='fw-bolder mb-1'>Welcome to Mahsoly</h5>
@@ -41,8 +41,7 @@ class Offers extends React.Component {
           </div>
         </div>
       </div>
-    );
-  }
+  )
 }
 
-export default Offers;
+export default Offers

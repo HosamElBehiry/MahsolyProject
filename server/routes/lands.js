@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const AgricultureLand = require("../models/AgricultureLand");
-var {verifyToken} = require('./shared');
-var multer = require('multer');
-const SingleFile = require('../models/SingleFile');
+const {verifyToken, addComment} = require('./shared');
+const multer = require('multer');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb)=>{
@@ -74,7 +73,7 @@ const addAgricultureLandToUserTable = (req, res, data) => {
     .then(() => {
       res
         .status(201)
-        .json({ msg: "Agriculture Land have been added successfully" });
+        .json({ msg: "Agriculture Land have been added successfully", result: data });
     })
     .catch((err) => {
       res.json({
@@ -95,16 +94,26 @@ router.get("/", async (req, res) => {
 });
 
 
+
+
 router.get("/:id", async (req, res) => {
-  try {
-    const land = await AgricultureLand.findOne({ _id: req.params.id }).populate('Owner');
-    if (!land) {
-      res.status(404).json({ msg: "This Land not Found" });
+  AgricultureLand.findOne({
+    _id: req.params.id,
+  }).populate({
+    path : 'comments',
+    populate : {
+      path : 'user'
     }
-    res.status(200).json(land);
-  } catch (error) {
-    res.status(500).json({msg : "Server Error"});
-  }
+  })
+  .populate('Owner')
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error
+      });
+    });
 });
 
 
@@ -164,5 +173,25 @@ const updateAgricultureLand = (req, res) => {
     res.status(500).json({msg : "Error updating Agriculture Land from server .. "})
   })
 };
+
+
+router.post('/addComment/:id', verifyToken, addComment, (req, res)=>{
+  AgricultureLand.updateOne({_id: req.params.id},{$push: {comments: req.comment}}).then(()=>{
+    const notification = new Notification({
+      description: `${req.decoded.name} commented on your Product`
+    })
+    notification.save().then((newNotification)=>{
+      User.updateOne({AgricultureLand: req.params.id}, {$push: {Notification: newNotification._id}}).then((foundedUser)=>{
+        res.status(200).json({msg: 'New Comment has been Added to Agriculture Land'});
+      }).catch((err)=>{
+        res.status(500).json({err, msg: "Error finding user from server"})
+      })
+    }).catch((err)=>{
+      res.status(500).json({msg: "Error Saving new notification from server .. ", err})
+    })
+  }).catch((err)=>{
+    res.status(500).json({msg: 'Error While Adding new Comment', err})
+  })
+});
 
 module.exports = router;

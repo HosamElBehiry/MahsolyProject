@@ -1,5 +1,6 @@
 var jwt = require('jsonwebtoken');
 const {secret}  = require('../secret') ;
+const Comments = require('../models/Comments');
 const verifyToken = (req, res, next) =>{
   const authHeader = req.headers.authorization;
   if(authHeader){
@@ -17,4 +18,17 @@ const verifyToken = (req, res, next) =>{
   }
 }
 
-module.exports = {verifyToken}
+const addComment = (req, res, next) =>{
+  const newComment = new Comments({
+    user: req.decoded._id,
+    description: req.body.description
+  })
+  newComment.save().then((data)=>{
+    req.comment = data._id;
+    next();
+  }).catch((err)=>{
+    res.status(500).json({msg: 'Error while Saving new Comment', err})
+  })
+}
+
+module.exports = {verifyToken, addComment}

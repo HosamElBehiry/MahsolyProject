@@ -115,12 +115,17 @@
 .single-product .post-section .post-comments .comment .comment-description{
   font-family: 'Handlee', 'cursive';
   letter-spacing: 1.2px;
+  width: 100%;
 }
 .single-product .post-section .post-comments .comment .comment-description p { 
   color: #747474;
 }
 .single-product .post-section .post-comments .comment .comment-description .date-of-comment{
   color: #49a760;
+}
+.single-product .post-section .post-comments .comment .comment-img img{
+  height: 165px;
+  width: 165px;
 }
 
 .single-product .categories .category-name > *, 
@@ -163,4 +168,17 @@
   letter-spacing: 1.5px;
   font-size: 1.2em;
 }
+
+.single-product .post-section .date{
+  background-color: #49a760;
+  color: white;
+  padding: 10px 5px;
+  width: fit-content;
+  border-radius: 3px;
+  font-family: 'Handlee', 'cursive';
+  position: absolute;
+  top: 0;
+  left: 12px;
+}
+
 

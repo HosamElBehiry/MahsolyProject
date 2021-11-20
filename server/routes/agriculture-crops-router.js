@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const AgricultureCrops = require("../models/AgricultureCrops");
 const Crops = require("../models/Crops");
 const User = require("../models/User");
-const {verifyToken} = require('./shared');
+const Notification = require('../models/Notification');
+const {verifyToken, addComment} = require('./shared');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
@@ -31,7 +32,7 @@ router.get('/', (req, res) => { // works fine
       res.status(200).json(data);
     })
     .catch((error) => {
-      req.json({
+      res.status(500).json({
         message: "Error Finding AgricultureCrops",
         error,
       });
@@ -89,8 +90,6 @@ const checkForQuantityID = (req, res) => {
       message: "Quantity Id must between 1 and 6 ",
     });
   } else {
-    console.log(req.body);
-    console.log(req.file);
     AddAgricultureCrop(req, res);
   }
 };
@@ -146,16 +145,42 @@ const AddNewAgricultureCropToUserTable = (req, res, data) => {
     });
 };
 
+
+router.post('/addComment/:id', verifyToken, addComment, (req, res)=>{
+  AgricultureCrops.updateOne({_id: req.params.id},{$push: {comments: req.comment}}).then(()=>{
+    const notification = new Notification({
+      description: `${req.decoded.name} commented on your Product`
+    })
+    notification.save().then((newNotification)=>{
+      User.updateOne({AgricultureCrop: req.params.id}, {$push: {Notification: newNotification._id}}).then((foundedUser)=>{
+        res.status(200).json({msg: 'New Comment has been Added to Agriculture Crop'});
+      }).catch((err)=>{
+        res.status(500).json({err, msg: "Error finding user from server"})
+      })
+    }).catch((err)=>{
+      res.status(500).json({msg: "Error Saving new notification from server .. ", err})
+    })
+  }).catch((err)=>{
+    res.status(500).json({msg: 'Error While Adding new Comment', err})
+  })
+});
+
 router.get('/:id',(req, res) => { // works fine 
   AgricultureCrops.findOne({
     _id: req.params.id,
-  }).populate('Owner name')
+  }).populate({
+    path : 'comments',
+    populate : {
+      path : 'user'
+    }
+  })
+  .populate('Owner')
     .then((data) => {
       res.json(data);
     })
     .catch((error) => {
-      req.json({
-        error,
+      res.status(500).json({
+        error
       });
     });
 });
@@ -245,5 +270,7 @@ const deleteAgricultureCrop = (req, res) => {
       });
     });
 };
+
+
 
 module.exports = router;

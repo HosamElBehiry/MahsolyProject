@@ -38,24 +38,71 @@ ul.right li:last-child{
   background-color: #efb443;
   border-radius: 5px;
   font-family: 'lato';
-  transition: background-color 0.8s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
 }
 
-ul.right li:not(:last-child) :hover{
-  color: #255946;
-}
 
 ul.right li:last-child:hover{
   background-color: #255946;
   color: white;
 }
 
-span.ourNumber{
-  margin-left: 10px;
+span.our-phone-detail{
+  position: relative;
 }
 
+span.call-any-time{
+  font-size: 16px;
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  width: 100px;
+  font-family: 'Handlee', 'cursive';
+  font-weight: bolder;
+}
+
+span.ourNumber{
+  font-weight: bolder;
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  width: 100px;
+  font-size: 0.8em;
+}
+
+
 .phone{
-  color :white !important; 
+  color :white !important;
+  width: 150px;
+}
+
+.number-of-notifications{
+  background-color: #49A760;;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 14px;
+  margin-left: -15px;
+}
+
+.show-notifications { 
+  position: absolute;
+  top: 80%; 
+  right: 6%;
+  z-index: 999;
+  padding: 10px;
+  background-color: #EFEFEF;
+  border-radius: 5px;
+  color: #949494;
+  font-weight: bolder;
+  font-size: 1em;
+  display: none;
+}
+.show-notifications .notification{
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.7s ease-in-out;
+  font-family: 'Handlee', 'cursive';
 }
 
 

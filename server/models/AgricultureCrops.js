@@ -42,12 +42,6 @@ const AgricultureCropsSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref : "User"
   }
-   // 1 - طن
-  // 2- كيلوجرام
-  // 3- إردب
-  // 4 - شوال
-  // 5- قطعه
-  // 6- قفص
 }, {timestamps: true});
 
 module.exports = mongoose.model("AgricultureCrops", AgricultureCropsSchema);

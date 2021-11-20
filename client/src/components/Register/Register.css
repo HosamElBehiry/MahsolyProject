@@ -5,7 +5,6 @@
 	text-align: center;
 }
 
-
 h2.title-login{
 	color: #255946 !important;
 	font-family: 'Handlee', cursive;
@@ -29,11 +28,11 @@ form.login-form-component{
 
 .login-content .input-div-login{
 	position: relative;
-    display: grid;
-    grid-template-columns: 7% 93%;
-    margin: 25px 0;
-    padding: 5px 0;
-    border-bottom: 2px solid #d9d9d9;
+	display: grid;
+	grid-template-columns: 7% 93%;
+	margin: 25px 0;
+	padding: 5px 0;
+	border-bottom: 2px solid #d9d9d9;
 }
 
 .login-content .input-div-login.one{
@@ -93,7 +92,7 @@ form.login-form-component{
 	font-size: 15px;
 }
 
-.input-div-login.focus > .i > .icon{
+.input-div-login.focus > .i .icon{
 	color: #255946;
 }
 
@@ -115,6 +114,7 @@ form.login-form-component{
 .input-div-login.pass{
 	margin-bottom: 4px;
 }
+
 
 span.forget-password-login{
 	display: block;
@@ -172,4 +172,18 @@ span.forget-password-login:hover{
   color: #255946;
   cursor: pointer;
   z-index: 3;
+}
+
+.input-div-login > div > h5.error{
+	color: red;
+}
+.input-div-login.focus > .i > .icon.error{
+	color: red;
+}
+.input-div-login.error:before, 
+.input-div-login.error:after{
+	background-color: red;
+}
+.input-login.error{
+	color: red;
 }

@@ -29,11 +29,11 @@ form.login-form-component{
 
 .login-content .input-div-login{
 	position: relative;
-    display: grid;
-    grid-template-columns: 7% 93%;
-    margin: 25px 0;
-    padding: 5px 0;
-    border-bottom: 2px solid #d9d9d9;
+	display: grid;
+	grid-template-columns: 7% 93%;
+	margin: 25px 0;
+	padding: 5px 0;
+	border-bottom: 2px solid #d9d9d9;
 }
 
 .login-content .input-div-login.one{
@@ -97,7 +97,9 @@ form.login-form-component{
 	color: #255946;
 }
 
-.input-div-login> div > input{
+
+
+.input-div-login > div > input{
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -161,3 +163,19 @@ span.forget-password-login:hover{
 .login-components h5{
   font-family: 'Handlee', cursive;
 }
+
+
+/* handling error*/
+
+.input-div-login.focus.error > .i > .icon,
+.input-div-login.focus > div > h5.error,
+.input-div-login > div > input.error{
+	color: #f00;
+}
+
+.input-div-login.error:before, 
+.input-div-login.error:after{
+	background-color: #f00;
+}
+
+/*End Of Handling Error*/

@@ -2,14 +2,15 @@ import {DELETE_CROP, GET_ALL, ADD_CROP} from '../../ActionFolder/ActionTypes/Agr
 
 const initialState = {
   Crops: [],
-  isAdded: false
+  isAdded: false,
+  cropID: {}
 }
 
 const AgricultureCropReducer = (state = initialState, action) =>{
   switch(action.type){
     case DELETE_CROP : return {
       ...state,
-      isDeleted: !action.payload
+      isDeleted: true
     }
     case GET_ALL: return {
       ...state,

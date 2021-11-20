@@ -7,22 +7,20 @@ import { BsFillEnvelopeFill } from "react-icons/bs";
 import { BsFillClockFill } from "react-icons/bs";
 import {FaUser} from 'react-icons/fa';
 import {IoLogOut} from 'react-icons/io5';
-import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import React from 'react';
+import {withRouter, Link} from 'react-router-dom';
 import { deleteUserInfo } from '../../ActionFolder/Actions/userActions';
 import {connect} from 'react-redux';
 
-class Topnavbar extends Component {
 
-  LogOut = () =>{
+function TopNavBar(props) {
+  const LogOut = () =>{
     localStorage.removeItem('token');
-    this.props.logout();
-    this.props.history.push('/Contact')
+    props.logout();
+    props.history.push('/Contact')
   }
-
-  render() {
-    return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <button className="navbar-toggler" type="button" 
           data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
@@ -69,13 +67,15 @@ class Topnavbar extends Component {
                     <span className="nav-link myhover right " ><FaUser /></span>
                   </li>
                   <li className="nav-item">
-                    <span className="nav-link myhover right greet-user-top-navbar fw-bolder" >Welcome {this.props.userData.name}
-                    </span>
+                    <Link to={`/Profile/${props.userData._id}`} className='text-decoration-none'>
+                      <span className="nav-link myhover right greet-user-top-navbar fw-bolder" >Welcome {props.userData.name}
+                      </span>
+                    </Link>
                   </li>
                   <li className="nav-item">
                     <span className="nav-link myhover right " ><IoLogOut className="fs-4"/></span>
                   </li>
-                  <li className="nav-item" onClick={()=> this.LogOut()}>
+                  <li className="nav-item" onClick={()=> LogOut()}>
                     <span className="nav-link myhover right greet-user-top-navbar fw-bolder" >Logout</span>
                   </li>
                 </>  
@@ -85,9 +85,9 @@ class Topnavbar extends Component {
         </div>
       </div>
     </nav>
-    );
-  }
+  )
 }
+
 
 const mapStateToProps = (state) =>{
   return {
@@ -101,4 +101,4 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Topnavbar));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(TopNavBar));
