@@ -26,3 +26,13 @@
 .agriculture-lands .crop-names > div:hover{
   padding: 20px 35px;
 }
+
+.agriculture-lands .selected-box.error,
+.agriculture-lands .selected-box .select-parent input.selected.error{
+  background-color: red;
+}
+
+.agriculture-lands .selected-box .select-parent .selected.error,
+.agriculture-lands .selected-box .select-parent input.selected.error::placeholder{
+  color: white;
+}

@@ -1,21 +1,22 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var cors = require('cors');
-var mongoose = require("mongoose");
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var agCropsRouter = require("./routes/agriculture-crops-router");
-var CropsNameRouter = require("./routes/cropsRouter");
-var Articles = require("./routes/Article");
-var AgricultureLands = require('./routes/lands')
-var ContactUs = require('./routes/contact')
-var Subscribers = require('./routes/subscribers')
-var Comments = require('./routes/comments');
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const cors = require('cors');
+const mongoose = require("mongoose");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const agCropsRouter = require("./routes/agriculture-crops-router");
+const CropsNameRouter = require("./routes/cropsRouter");
+const Articles = require("./routes/Article");
+const AgricultureLands = require('./routes/lands')
+const ContactUs = require('./routes/contact')
+const Subscribers = require('./routes/subscribers')
+const Comments = require('./routes/comments');
+const pendingAgricultureCrops = require('./routes/pending')
 const bodyParser = require('body-parser');
-var app = express();
+const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -49,6 +50,7 @@ app.use("/lands", AgricultureLands);
 app.use("/contact", ContactUs);
 app.use('/subscribers', Subscribers);
 app.use('/comments', Comments);
+app.use('/pendingCrops', pendingAgricultureCrops);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

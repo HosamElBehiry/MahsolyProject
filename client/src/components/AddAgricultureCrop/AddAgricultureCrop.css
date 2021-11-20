@@ -40,3 +40,17 @@
 .agriculture-crops .crop-measurements > div:hover{
   padding: 20px 35px;
 }
+
+.agriculture-crops .selected-box.error{
+  background-color: red;
+}
+
+.agriculture-crops .select-parent .selected.error{
+  color: white;
+}
+.agriculture-crops .select-parent input.selected.error{
+  background-color: red;
+}
+.agriculture-crops .select-parent input.selected.error::placeholder{
+  color: white;
+}

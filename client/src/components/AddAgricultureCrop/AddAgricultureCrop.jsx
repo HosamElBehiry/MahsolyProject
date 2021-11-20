@@ -17,19 +17,22 @@ function AddAgricultureCrop(props) {
   const measurement_ = useRef(null);
   const measurementBox = useRef(null);
   const measurementArrow = useRef(null);
+  const [measureError, setMeasureError] = useState(false);
   const fileInput = useRef(null);
   const ImgSection = useRef(null);
   const units = ['Ton', 'KiloGram', 'Ardib', 'Sack', 'Piece', 'Box'];
   const [currentCrops, setCurrentCrops] = useState([])
   const [cro, setCro] = useState([])
   const [cropImg, setCropImg] = useState('');
+  const [imgError, setImgError] = useState(false);
   const [cropName, setCropName] = useState('');
   const [price, setPrice] = useState('');
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
-  const [measurement, setMeasurement] = useState("-1");
+  const [measurement, setMeasurement] = useState("");
   const [longitude, setLongitude] = useState('');
   const [latitude, setLatitude] = useState('');
+  const [locationError, setLocationError] = useState(false);
   const [description, setDescription] = useState('');
   const [isCropNameOpened, setIsCropNameOpened] = useState(false);
   const [isMeasurementArrowOpened, setIsMeasurementArrowOpened] = useState(false);
@@ -78,19 +81,28 @@ function AddAgricultureCrop(props) {
     setMeasurement(index + 1)
     handleClickMeasurement();
   }
-  const handleSubmit = (e) =>{
+  const handleAddCropSubmit = (e) =>{
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('images',cropImg);
-    formData.append('description',description);
-    formData.append('locationLongitude',longitude);
-    formData.append('locationLatitude',latitude);
-    formData.append('price',parseFloat(price));
-    formData.append('quantity',parseInt(quantity));
-    formData.append('quantityId',measurement);
-    props.add(formData);
-    setTimeout(() => {props.history.push('/Crops')},1000)
+    if(cropImg === ''){
+      setImgError(true);
+    }else if(measurement === ''){
+      setMeasureError(true);
+    }else if (longitude === '' || latitude === ''){
+      setLocationError(true);
+    }
+    else{
+      const formData = new FormData();
+      formData.append('name', name === '' ? cropName: name);
+      formData.append('images',cropImg);
+      formData.append('description',description);
+      formData.append('locationLongitude',longitude);
+      formData.append('locationLatitude',latitude);
+      formData.append('price',parseFloat(price));
+      formData.append('quantity',parseInt(quantity));
+      formData.append('quantityId',measurement);
+      props.add(formData);
+      props.history.push('/Crops')
+    }
   }
 
   useEffect(() => {
@@ -100,11 +112,10 @@ function AddAgricultureCrop(props) {
     setCro(result);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
   return (
     <div className="agriculture-crops" >
         <h2 className='mb-3 fw-bolder text-center'>Agriculture Crops</h2>
-        <form method='post' onSubmit={(e) => handleSubmit(e)} encType="multipart/form-data">
+        <form method='post' onSubmit={(e) => handleAddCropSubmit(e)} >
           <div className="d-flex align-items-center justify-content-between">
             <div className='selected-box crop-name-box mb-3'>
               <div className='select-parent'>
@@ -144,11 +155,11 @@ function AddAgricultureCrop(props) {
                 onChange={(e) => setQuantity(e.target.value)}/> 
               </div>
             </div>
-            <div className='selected-box quantity-id mb-3'>
+            <div className={`selected-box quantity-id mb-3 ${measureError && 'error'} `}>
               <div className='select-parent'>
-                <div className='mt-2 selected'><span ref={measurementBox}>Measurement </span> 
+                <div className={`mt-2 selected ${measureError && 'error'}`}><span ref={measurementBox}>Measurement</span> 
                   <IoMdArrowDropdown refs={measurementArrow} className='ms-3 mb-1 bottom-arrow' 
-                  onClick={()=> handleClickMeasurement()}/></div>
+                  onClick={()=> {setMeasureError(false);handleClickMeasurement()}}/></div>
                 <div className="crop-measurements" ref={measurement_}>
                   {
                     units.map((unit, index)=>{
@@ -160,36 +171,36 @@ function AddAgricultureCrop(props) {
             </div>
           </div>
           <div className="d-flex align-items-center justify-content-between">
-            <div className='selected-box location-longitude mb-3'>
+            <div className={`selected-box location-longitude mb-3 ${locationError && 'error'}`}>
               <div className='select-parent'>
-                <input className='mt-2 selected' placeholder='Location Longitude' 
-                type='number' onClick={() => findMyLocation()} value={longitude} onChange={(e) => setLongitude(e.target.value)}/> 
+                <input className={`mt-2 selected ${locationError && 'error'}`} placeholder='Location Longitude' 
+                type='number' onClick={() => {setLocationError(false);findMyLocation()}} value={longitude} onChange={(e) => setLongitude(e.target.value)}/> 
               </div>
             </div>
-            <div className='selected-box location-latitude mb-3'>
+            <div className={`selected-box location-latitude mb-3 ${locationError && 'error'}`}>
               <div className='select-parent'>
-                <input className='mt-2 selected' placeholder='Location Latitude' 
-                type='number' value={latitude} onClick={() => findMyLocation()}
+                <input className={`mt-2 selected ${locationError && 'error'}`} placeholder='Location Latitude' 
+                type='number' value={latitude} onClick={() => {setLocationError(false);findMyLocation()}}
                 onChange={(e) => setLatitude(e.target.value)}/> 
               </div>
             </div>
           </div>
-          <div className='selected-box mb-3'>
+          <div className={`selected-box mb-3 ${imgError && 'error' }`}>
             <div className='select-parent'>
-              <div className='mt-2 selected'>
+              <div className={`mt-2 selected ${imgError && 'error'}`}>
                 <span ref={ImgSection}>Choose Image </span> 
                   <AiOutlinePlus className='ms-3 mb-1 bottom-arrow' 
-                    onClick={()=> fileInput.current.click()}
+                    onClick={()=> {setImgError(false);fileInput.current.click()}}
                   />
                 <input type="file" className='d-none' name='images'
-                  ref={fileInput} accept='images/*' required
+                  ref={fileInput} accept='images/*'
                   onChange= {(e) => {ImgSection.current.innerHTML = 'Image has been added';setCropImg(e.target.files[0])}}
                 />
               </div>
             </div>
           </div>
           <textarea placeholder='Write Description' rows="5" 
-            className=' mb-3' value={description} required
+            className='mb-3' value={description} required
             onChange={(e) => setDescription(e.target.value)}>
           </textarea>
           <button className='agriculture-crop-submit btn btn-success fw-bolder'>Add Agriculture Crop</button>

@@ -58,6 +58,7 @@ export const AddCrop = (formData) =>{
         dispatch(AddNewCrop());
         dispatch(getAllCrops());
       }).catch((err)=>{
+        console.log(err.response.data)
         console.log('Error Adding New Product', err);
       })
   }

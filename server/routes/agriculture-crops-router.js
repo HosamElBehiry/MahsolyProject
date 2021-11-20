@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const AgricultureCrops = require("../models/AgricultureCrops");
+const PendingAgricultureCrop = require('../models/PendingAgricultureCrops');
 const Crops = require("../models/Crops");
 const User = require("../models/User");
 const Notification = require('../models/Notification');
@@ -58,18 +59,33 @@ router.post('/',upload.single('images'), verifyToken ,(req, res) => { // works f
   })
     .then((data) => {
       if (data === null) {
-        res.status(403).json({
-          msg: "you must enter a correct crop ID",
-        });
+        res.status(403).json({msg : "Data is null"})
       } else {
         checkForPriceAndQuantity(req, res);
       }
     })
     .catch(() => {
-      console.log('Error line 69')
-      res.status(404).json({
-        message: "Error Finding Crop",
-      });
+        let { name, description, locationLongitude, locationLatitude,price, quantity, quantityId} = req.body;
+        const pendingAgricultureCrop = new PendingAgricultureCrop({
+          name,
+          description,
+          images: req.file.path,
+          locationLongitude,
+          locationLatitude,
+          price,
+          quantity,
+          quantityId,
+          Owner: req.decoded._id
+        });
+        pendingAgricultureCrop
+        .save()
+        .then((data)=>{
+          res.status(201).json({msg : "New Agriculture Crop have been Added to Pending Agriculture Crop", data})
+        })
+        .catch((err)=>{
+          console.log('error is here !!')
+          res.status(500).json({msg : "Error Saving new Agriculture Crop to Pending Agriculture Crop Table", err})
+        })
     });
   });
   

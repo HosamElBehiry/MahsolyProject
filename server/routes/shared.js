@@ -18,6 +18,27 @@ const verifyToken = (req, res, next) =>{
   }
 }
 
+const verifyAdminToken = (req, res, next) =>{
+  const authHeader = req.headers.authorization;
+  if(authHeader){
+    const token = authHeader.split(' ')[1];
+    jwt.verify(token, secret, (err, decoded)=>{
+      if(err){
+        res.status(403).json({msg : "Error invalid with Token"})
+      }else{
+        if(decoded.isAdmin){
+          req.decoded = decoded;
+          next();
+        }else{
+          res.status(401).json({msg : "Unauthorized User"})
+        }
+      }
+    })
+  }else{
+    res.status(401).json({msg : "Unauthorized User"})
+  }
+}
+
 const addComment = (req, res, next) =>{
   const newComment = new Comments({
     user: req.decoded._id,
@@ -31,4 +52,4 @@ const addComment = (req, res, next) =>{
   })
 }
 
-module.exports = {verifyToken, addComment}
+module.exports = {verifyToken, verifyAdminToken, addComment}
