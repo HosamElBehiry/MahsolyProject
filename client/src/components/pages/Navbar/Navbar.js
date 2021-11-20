@@ -1,18 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
-import { BsSearch } from "react-icons/bs";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { FiPhoneCall } from "react-icons/fi";
 import Logo from "../../../public/images/loader.png";
+import EnglandFlag from '../../../public/images/englandFlag.jpg';
+import EgyptFlag from '../../../public/images/egyFlag.png'
 import { Link } from "react-router-dom";
 import TopNavBar from "../TopNavBar/TopNavBar";
 import {connect} from 'react-redux';
+import {IoMdArrowDropdown} from 'react-icons/io';
 import { getUserById } from "../../ActionFolder/Actions/userActions";
 
 function Header(props) {
   const lists = ["Home", "About", "Crops", "Lands", "Stock", "Contact"];
   const [currentIndex, setCurrentIndex] = useState(0);
   const notificationBox = useRef(null);
+  const [isEnglish, setIsEnglish] = useState(true);
   const [isNotificationBoxOpend, setNotificationBox] = useState(false);
   const displayLists = () => {
     return lists.map((list, index) => {
@@ -57,11 +60,6 @@ function Header(props) {
               {displayLists()}
             </ul>
             <ul className="navbar-nav  mb-1 mb-lg-0 right">
-              <li className="nav-item mb-2">
-                <span className="nav-link pt-3 animate">
-                  <BsSearch className="fs-4" />
-                </span>
-              </li>
               {
                 props.isLog && 
                 <li className="nav-item mb-2" onClick={()=> handleNotifications()}>
@@ -71,6 +69,19 @@ function Header(props) {
                 </span>
               </li>
               }
+              <li className="nav-item mb-2">
+                <span className="nav-link pt-3 animate">
+                  <span className={`${!isEnglish ? 'd-none' : 'aa'} 'aa'`}>
+                    <img src={EnglandFlag} alt='' height={25} width={25} className="flag-img" />
+                    <IoMdArrowDropdown onClick={()=>setIsEnglish(false)}/>
+                  </span>
+                  <span className={`${isEnglish ? 'd-none': 'aa'} 'aa'`}>
+                    <img src={EgyptFlag} alt='' height={25} width={25} className="flag-img egypt" />
+                    <IoMdArrowDropdown className="flag-img egypt" onClick={()=>setIsEnglish(true)} />
+                  </span>
+                </span>
+              </li>
+              
               <li className="nav-item">
                 <span className="nav-link phone">
                   <FiPhoneCall />

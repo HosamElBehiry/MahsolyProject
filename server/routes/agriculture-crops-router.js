@@ -75,7 +75,7 @@ router.post('/',upload.single('images'), verifyToken ,(req, res) => { // works f
           price,
           quantity,
           quantityId,
-          Owner: req.decoded._id
+          Owner: req.body.Owner ? req.body.Owner : req.decoded._id
         });
         pendingAgricultureCrop
         .save()
@@ -115,13 +115,13 @@ const AddAgricultureCrop = (req, res) => {
       let newAgricultureCrop = new AgricultureCrops({
         name,
         description,
-        images: req.file.path,
+        images: req.file ? req.file.path : req.body.images,
         locationLongitude,
         locationLatitude,
         price,
         quantity,
         quantityId,
-        Owner: req.decoded._id
+        Owner: req.body.Owner ? req.body.Owner : req.decoded._id
       });
       newAgricultureCrop
         .save()
@@ -140,7 +140,7 @@ const AddAgricultureCrop = (req, res) => {
 const AddNewAgricultureCropToUserTable = (req, res, data) => {
   User.updateOne(
     {
-      _id: req.decoded._id,
+      _id: req.body.Owner ? req.body.Owner : req.decoded._id,
     },
     {
       $push: {
@@ -249,7 +249,7 @@ const updateAgricultureCrop = (req, res) => {
 
 const checkIfThisUserIsTheOwnerOfThisAgricultureCrop = (req,res,isExecutedAfterDelete) => {
   User.findOne({
-    AgricultureCrop: req.params.id,
+    _id: req.decoded._id,AgricultureCrop: req.params.id,
   })
     .then((data) => {
       if (req.decoded._id === data._id.toString()) {
